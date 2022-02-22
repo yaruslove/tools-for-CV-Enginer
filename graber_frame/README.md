@@ -5,7 +5,9 @@
 
 ## Command for run  
 
-```python3 grab_frame.py --src /cam_videos --dst /out_frames --rate 20```
+```
+python3 grab_frame.py --src /cam_videos --dst /out_frames --rate 20
+```
 
 
 ### Переменные
