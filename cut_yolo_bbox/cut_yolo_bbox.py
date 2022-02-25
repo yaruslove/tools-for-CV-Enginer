@@ -35,6 +35,8 @@ if __name__ == '__main__':
 
     labels_pth=glob.glob(f"{labels_pth}*.txt")
 
+    no_image=[]
+
     for cur_lab in labels_pth: 
         if cur_lab.endswith("classes.txt"):
             continue
@@ -42,9 +44,16 @@ if __name__ == '__main__':
         print(name_file)
         name_file=name_file[:name_file.rfind(".")]
         
+        trig=0 # Останеться 0 если есть txt но нет image
         for img_name in os.listdir(imgs_pth):
             if (img_name).startswith(name_file+".") and not (img_name).endswith(name_file+".txt"):
+                print("1it works")
+                trig=1
                 break
+             
+        if  trig==0:      
+            no_image.append(name_file)
+            continue
         
         img = cv2.imread(os.path.join(imgs_pth,img_name))
         h,w,_ =img.shape
@@ -68,5 +77,7 @@ if __name__ == '__main__':
             cv2.imwrite(tmp_outpath, tmp_img)
 
 
+print("Amount exist txt no image = ",str(len(no_image)))
+print("List txt no image: ",no_image)
 print("\n")
 print("Program finished!")
