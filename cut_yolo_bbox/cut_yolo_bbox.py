@@ -33,11 +33,12 @@ if __name__ == '__main__':
     out_pth=args.out_pth
 
 
-    labels_pth=glob.glob(f"{labels_pth}*.txt")
+    labels_pth=glob.glob(f"{labels_pth}/*.txt")
 
     no_image=[]
 
-    for cur_lab in labels_pth: 
+
+    for cur_lab in labels_pth:
         if cur_lab.endswith("classes.txt"):
             continue
         name_file=os.path.basename(cur_lab)
@@ -73,7 +74,7 @@ if __name__ == '__main__':
             ystrt=int((y1-y2/2)*h)
             yend=int((y1+y2/2)*h)
             tmp_img=img[ystrt:yend, xstrt:xend]
-            tmp_outpath=os.path.join(out_pth, zamena[int(cl)],name_file+".jpg")
+            tmp_outpath=os.path.join(out_pth, zamena[int(cl)],name_file+"_"+str(idx)+".jpg")
             cv2.imwrite(tmp_outpath, tmp_img)
 
 
