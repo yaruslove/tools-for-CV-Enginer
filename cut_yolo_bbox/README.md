@@ -16,7 +16,7 @@ python3 cut_yolo_bbox.py \
 --labels_pth   path where located txt YOLO files  
 --imgs_pth     path where located images files  
 --out_pth      path where will save croped images
---zamena       dictionary *--zamena 0=stand,1=laiyng* 
+--classes      dictionary *--classes 0=stand,1=laiyng* 
 
 if YOLO label is **0** it mean that final destination is 
 path(/out_pth/ +  **stand**/ ....)   folder == is stand
@@ -30,5 +30,5 @@ python3 cut_yolo_bbox.py \
 --labels_pth '/Volumes/ADATA/SetElderly/' \
 --imgs_pth '/Volumes/ADATA/SetElderly/' \
 --out_pth '/Volumes/ADATA//join/' \
---zamena 0=stand,1=laiyng
+--classes 0=stand,1=laiyng
 ```
