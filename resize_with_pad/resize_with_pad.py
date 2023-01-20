@@ -1,23 +1,18 @@
-def resize_with_pad(image: np.array, 
-                    w:int,
-                    h:int ) -> np.array:
-    black_vector = (0, 0, 0)
-    blk_blnk=np.full((*(h,w), len(black_vector)), black_vector).astype(np.uint8)
-    w_src,h_src,_=image.shape
-    dst_ratio=h/w
-    src_ratio=h_src/w_src
-    
-    if src_ratio>=dst_ratio:
-        h_tmp=h
-        w_tmp=int(h_tmp*src_ratio)
-        image=cv.resize(image, (w_tmp,h_tmp), interpolation = cv.INTER_AREA)
-        pad_half=int((w-w_tmp)/2)
-        blk_blnk[0:h_tmp,pad_half:int(pad_half+w_tmp)] = image
-    if src_ratio<dst_ratio:
-        w_tmp=w
-        h_tmp=int(w_tmp*src_ratio)
-        image=cv.resize(image, (w_tmp,h_tmp), interpolation = cv.INTER_AREA)
-        pad_half=int((h-h_tmp)/2)
-        blk_blnk[pad_half:int(pad_half+h_tmp),0:w_tmp] = image
+def resize_with_pad(img: np.array, new_size):
+    old_ratio = img.shape[1]/img.shape[0]
+    new_ratio = new_size[0]/new_size[1]
 
-    return blk_blnk
+    if(new_ratio < old_ratio):
+        new_h = new_size[0]
+        new_w = int(new_h / old_ratio)
+    else:
+        new_w = new_size[1]
+        new_h = int(new_w * old_ratio)
+
+    img = cv.resize(img, (new_h, new_w))
+
+    f = np.zeros((new_size[1],new_size[0],3),np.uint8)
+    shift_x = int((new_size[1] - img.shape[0])/2)
+    shift_y = int((new_size[0] - img.shape[1])/2)
+    f[shift_x:img.shape[0]+shift_x,shift_y:img.shape[1]+shift_y] = img
+    return f
