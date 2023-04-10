@@ -3,7 +3,7 @@ import os
 import cv2
 import textwrap
 import argparse
-
+from tqdm import tqdm
 
 class StoreDictKeyPair(argparse.Action):
      def __call__(self, parser, namespace, values, option_string=None):
@@ -43,18 +43,19 @@ if __name__ == '__main__':
         if not os.path.exists(pth_cl):
             os.makedirs(pth_cl)
 
-
-    for cur_lab in labels_pth:
+    pbar = tqdm(labels_pth)
+    name_file=""
+    for cur_lab in pbar:
         if cur_lab.endswith("classes.txt"):
             continue
         name_file=os.path.basename(cur_lab)
-        print(name_file)
+        pbar.set_postfix({'num_vowels': name_file})
+        # print(name_file)
         name_file=name_file[:name_file.rfind(".")]
         
         trig=0 # Останеться 0 если есть txt но нет image
         for img_name in os.listdir(imgs_pth):
             if (img_name).startswith(name_file+".") and not (img_name).endswith(name_file+".txt"):
-                print("1it works")
                 trig=1
                 break
              
@@ -72,19 +73,24 @@ if __name__ == '__main__':
         f=f.strip().split("\n")
         
         for idx,i in enumerate(f):
-            i=[float(j) for j in i.split(" ")]
+
+            i=[float(j) for j in i.strip().split(" ")]
             cl,x1,y1,x2,y2=i[0],i[1],i[2],i[3],i[4]
             # cl,x1,y1,x2,y2=float(cl),float(x1),float(y1),float(x2),float(y2)
-            # print(i)
             xstrt=int((x1-x2/2)*w)
             xend=int((x1+x2/2)*w)
             ystrt=int((y1-y2/2)*h)
             yend=int((y1+y2/2)*h)
             tmp_img=img[ystrt:yend, xstrt:xend]
-            tmp_outpath=os.path.join(out_pth, classes[int(cl)],name_file+"_"+str(idx)+".jpg")
-            print(tmp_outpath)
 
-            print(cv2.imwrite(tmp_outpath, tmp_img))
+            if int(cl) not in classes.keys():
+                continue
+
+
+
+            tmp_outpath=os.path.join(out_pth, classes[int(cl)],name_file+"_"+str(idx)+".png")
+
+            cv2.imwrite(tmp_outpath, tmp_img)
 
 
 print("Amount exist txt no image = ",str(len(no_image)))
