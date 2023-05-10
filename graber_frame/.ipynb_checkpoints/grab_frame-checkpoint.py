@@ -11,9 +11,7 @@ if __name__ == '__main__':
         video = cv2.VideoCapture(src_loc)  #  Захватываем фрагмент видеофайла
         currentframe = 0
 
-        total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
-
-        while video.isOpened() and total_frames>=currentframe:
+        while(True):
             video.set(1, currentframe) # чтение кадров
             ret,frame = video.read()     
             if ret: # если видео еще осталось, продолжайте создавать изображения
