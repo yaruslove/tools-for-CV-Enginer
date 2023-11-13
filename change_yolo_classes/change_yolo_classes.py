@@ -1,3 +1,4 @@
+import os
 import glob
 import textwrap
 import argparse
@@ -32,6 +33,8 @@ if __name__ == '__main__':
 
 
     for lab in glob.glob(f'{labels_pth}/*.txt'):
+        if os.stat(lab).st_size == 0:
+            continue
         f = open(lab,'r')
         context = f.read()
         f.close()
