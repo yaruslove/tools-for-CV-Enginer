@@ -1,0 +1,13 @@
+	name_set	collector_black_case	collector_case	collector_no_case	person	undefined
+5	001_inside_car_incass_DONE!	3	9	4333	425	165
+10	002_out_car_incass_DONE!	58	10	175	1787	446
+8	003_ift_stand_inside_car_DONE!	3	7	10877	1708	1303
+3	004_ift_stand_outside_car_DONE!	97	44	458	1319	958
+0	005_ift_inside_and_outside_part_I_DONE!	144	57	2030	4579	3762
+4	008_Collector_classificator_Tatyana_DONE!	1677	1051	988	3410	0
+11	009_Postanovka_Anton_DONE!	1793	936	274	3584	1257
+6	010_Postanovka_Abza	1939	1100	191	3757	1970
+9	011_1_Postanovka_Yar_incass	786	569	81	2697	853
+2	011_2_Postanovka_Yar_not_incass	0	0	0	921	109
+1	012_Hard_cases	1	0	0	29	0
+7	013_colecting_for_test	207	85	126	98	0

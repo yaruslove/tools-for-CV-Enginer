@@ -1,0 +1,43 @@
+tmp = [
+
+            [
+
+                albu.Blur(p=0.5),
+
+                albu.RandomGamma(p=0.5),
+
+                albu.RandomCrop(height=500, width=500, p=0.5)
+
+            ],
+
+            [
+
+                albu.RandomFog(fog_coef_lower=0.1, fog_coef_upper=0.3, p=0.5),
+
+                albu.RandomBrightnessContrast(brightness_limit=0.8, contrast_limit=0.8, p=0.5),
+
+            ],
+
+            [
+
+                albu.CLAHE(p=0.5),
+
+                albu.ImageCompression(quality_lower=50, quality_upper=70, p=0.5),
+
+                albu.RandomCrop(height=500, width=500, p=0.5)
+
+            ],
+
+            [
+
+                albu.CLAHE(p=0.5),
+
+                albu.RandomFog(fog_coef_lower=0.1, fog_coef_upper=0.3, p=0.5),
+
+                albu.RandomCrop(height=500, width=500, p=0.5)
+
+            ],
+
+            []
+
+        ]

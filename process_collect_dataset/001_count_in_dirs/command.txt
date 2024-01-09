@@ -1,9 +1,0 @@
-python3 count_images_indir.py -s /home/arch/Documents/project/angel/image_classification/dataset/prepare_data -c collector_black_case collector_case collector_no_case person undefined -o out.csv
-
-scp -r /home/arch/Documents/project/angel/image_classification/dataset/prepare_data volkonskiy-yi@192.168.30.100:/disks/disk1/cv_datasets/angel_data/tasks_datasets/004_classification_people/prepare_data
-
-
-
-python3 count_images_indir.py -s /home/arch/Документы/project/angel/incass_classification/dataset/prepared_data_001/ \
--c collector_black_case collector_case collector_no_case person undefined \
--o /home/arch/Документы/project/angel/incass_classification/dataset/sheet_tabels/002_out/out.csv
