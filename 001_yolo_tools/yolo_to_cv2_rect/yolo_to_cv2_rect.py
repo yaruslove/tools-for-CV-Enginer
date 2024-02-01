@@ -1,12 +1,17 @@
 str_yolo = "32 0.262,0.7878 0.314 0.385"
 
-def yolo_to_cv2_rect(str_yolo,h,w):
-    x1 = int( float(str_v.split(' ')[1]) * w )
-    y1 = int( float(str_v.split(' ')[2]) * h )
-    xw = int( float(str_v.split(' ')[3]) * w /2)
-    yw = int( float(str_v.split(' ')[4]) * h /2)
-    #make x1,y1, x2,y2
+def yolo_to_cv2_rect(str_yolo, w_res, h_res):
+    # parse
+    cl, x_cent_rel, y_cent_rel, w_rel, h_rel = str_yolo.split(' ')
+    # relative value to abs
+    x_cent_abs = int( float (x_cent_rel) * w_res )
+    y_cent_abs = int( float (y_cent_rel) * h_res )
+    w_abs_half = int( float(w_rel) * w_res /2)
+    h_abs_half = int( float(h_rel) * h_res /2)
 
-    start_point = (x1 - xw, y1 - yw )
-    end_point   = (x1 + xw, y1 + yw )
-    return start_point,start_point
+    x1 = x_cent_abs - w_abs_half
+    x2 = x_cent_abs + w_abs_half
+    y1 = y_cent_abs - h_abs_half
+    y2 = y_cent_abs + h_abs_half
+
+    return x1, x2, y1, y2
