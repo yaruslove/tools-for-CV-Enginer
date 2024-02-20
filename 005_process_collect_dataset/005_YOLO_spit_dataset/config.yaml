@@ -1,0 +1,3 @@
+path_in: "/home/yaroslav/Documents/001_Projects/005_car_number/data/001_raw_data/001_plates/005_Zaharov"
+path_out: "/home/yaroslav/Documents/001_Projects/005_car_number/data/001_raw_data/001_plates/005_Zaharov_val"
+transfer_percentage: 0.11
