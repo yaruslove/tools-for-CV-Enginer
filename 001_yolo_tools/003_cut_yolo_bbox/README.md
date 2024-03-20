@@ -32,3 +32,10 @@ python3 cut_yolo_bbox.py \
 --out_pth '/Volumes/ADATA//join/' \
 --classes 0=stand,1=laiyng
 ```
+
+
+python3 cut_yolo_bbox.py \
+--labels_pth '/home/yaroslav/Documents/001_Projects/005_car_number/001_data/001_raw_data/005_google_view/train/labels' \
+--imgs_pth '/home/yaroslav/Documents/001_Projects/005_car_number/001_data/001_raw_data/005_google_view/train/images' \
+--out_pth '/home/yaroslav/Documents/001_Projects/005_car_number/001_data/001_raw_data/005_google_view/train/cropp_yolo' \
+--classes 0=0,1=1,2=2,3=3,4=4,5=5,6=6,7=7,8=8,9=9

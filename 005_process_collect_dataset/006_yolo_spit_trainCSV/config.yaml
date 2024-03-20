@@ -1,0 +1,3 @@
+path_in_raw: "/home/yaroslav/Documents/001_Projects/005_car_number/data/001_raw_data/001_plates/"
+path_out_train: "/home/yaroslav/Documents/001_Projects/005_car_number/data/002_data_experiments/001_plates_train/data_train/"
+csv_file: "/home/yaroslav/Documents/001_Projects/005_car_number/data/002_data_experiments/001_plates_train/splited_data.csv"
