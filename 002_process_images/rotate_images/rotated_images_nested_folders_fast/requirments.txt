@@ -1,0 +1,6 @@
+# Core dependencies
+Pillow>=10.0.0  # For image processing
+PyYAML>=6.0.1   # For configuration file handling
+
+# Optional but recommended
+tqdm>=4.65.0    # For progress bar

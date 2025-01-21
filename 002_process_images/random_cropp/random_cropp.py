@@ -70,8 +70,8 @@ def random_crop_images(path_in, path_out, n_crops, max_size, min_size):
 if __name__ == "__main__":
     random_crop_images(
         path_in="/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/002_quality_classifier/001_raw_data/002_034_ImageNet_val_garbage/002_raw_data_img/ILSVRC2012_img_val",
-        path_out="/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/002_quality_classifier/001_raw_data/002_034_ImageNet_val_garbage/005_verified_annotation/002_random_cropp_16_01_25_val",
-        n_crops=3000,
-        max_size=350,
-        min_size=45
+        path_out="/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/002_quality_classifier/001_raw_data/002_034_ImageNet_val_garbage/005_verified_annotation/002_random_cropp_16_01_25_train/7",
+        n_crops=5000,
+        max_size=210,
+        min_size=55
     )

@@ -1,0 +1,6 @@
+opencv-python
+opencv-python-headless
+ffmpeg-python
+tqdm
+pyyaml
+pyopencl  # для AMD OpenCL

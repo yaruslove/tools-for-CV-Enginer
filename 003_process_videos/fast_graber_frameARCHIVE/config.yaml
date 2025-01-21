@@ -1,0 +1,17 @@
+input:
+  src: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/001_raw_vids/Макушки 15-01-25/"  # путь к видео файлам
+  dst: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/002_raw_data_img/out"  # путь для сохранения кадров
+  rate: 5               # частота захвата кадров
+
+hardware:
+  force_cpu: false       # принудительное использование CPU
+  
+video_formats:           # поддерживаемые форматы видео
+  - ".mp4"
+  - ".avi"
+  - ".MOV"
+  - ".asf"
+
+processing:
+  max_workers: null      # null для автоопределения по числу ядер CPU
+  use_ffmpeg: true      # использовать ли ffmpeg

@@ -1,0 +1,4 @@
+src: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/002_raw_data_img/out_freq5sec_cleaned"
+dst: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/002_raw_data_img/out_freq5sec_cleaned_rotated_fast"
+angle: 90  # угол поворота по часовой стрелке в градусах
+num_processes: 16  # опционально, по умолчанию используется оптимальное значение
