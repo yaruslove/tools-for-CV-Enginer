@@ -1,0 +1,27 @@
+# Nested dir
+src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/002_raw_data_img/out_freq5sec_rotated_highly_cleaned_for_labeling"
+src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/out_freq5sec_rotated_highly_cleaned_for_labeling_REMAPED"
+dst_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/visualize_remaped_all"
+classes:
+  - "000_target_top"
+  - "001_backround_top"
+  - "002_strip"
+  - "003_coil"
+
+# previous classes
+# classes:
+#   - "000_coil"
+#   - "001_top_backround"
+#   - "002_top_target"
+#   - "003_strip"
+
+colors:
+  - [0, 0, 255] # red
+  - [171, 0, 111] # green_white
+  - [255, 0, 18 ] # dark blue
+  - [236, 255, 1] # green_white
+
+# Настройки отображения (опциональные)
+box_thickness: 4     # толщина рамок
+font_scale: 2     # размер шрифта
+font_thickness: 4    # толщина шрифта

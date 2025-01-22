@@ -1,0 +1,18 @@
+# Source directory containing label folders
+src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/out_freq5sec_rotated_highly_cleaned_mismatched_classes"
+
+# Destination directory for processed labels
+dst_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/out_freq5sec_rotated_highly_cleaned_for_labeling_REMAPED"
+
+# Class remapping dictionary
+# Format: {old_class: new_class}
+rematch_classes:
+  0: 3    # replace class 0 with 1
+  1: 1    # replace class 1 with 0
+  2: 0    # replace class 2 with 8
+  3: 2    # replace class 3 with 9
+
+# top_target
+# top_backround
+# strip
+# coil

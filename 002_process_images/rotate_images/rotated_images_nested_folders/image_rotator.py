@@ -42,7 +42,7 @@ def process_images(src_dir, dst_dir, angle):
                         rotated_img = img.rotate(-angle, expand=True)  # Отрицательный угол для поворота по часовой стрелке
                         
                         # Сохраняем изображение
-                        rotated_img.save(dst_path, quality=95, subsampling=0)
+                        rotated_img.save(dst_path, quality=100, subsampling=0)
                         
                     print(f"Обработано: {src_path} -> {dst_path}")
                     

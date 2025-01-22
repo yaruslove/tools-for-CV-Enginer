@@ -1,0 +1,2 @@
+src_yolo: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/set_for_labelling/collected_yolo"
+dst_LabelStudio: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/set_for_labelling/LS_collected1"

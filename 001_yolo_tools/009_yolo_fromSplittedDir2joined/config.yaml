@@ -1,0 +1,4 @@
+src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/set_for_labelling/images"
+src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/set_for_labelling/labels"
+src_classes: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/set_for_labelling/classes.txt"
+joined: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/set_for_labelling/collected"
