@@ -1,0 +1,31 @@
+graph TD
+    A[Raw Data] -->|Анализ| B[dataset_excel_info.py]
+    B -->|Генерация| C[Excel таблица распределения]
+    
+    A -->|Обработка| D[main_assembly.py]
+    D -->|Чтение конфигурации| E[conf.yaml]
+    E -->|Балансировка| F[Распределение данных]
+    F -->|Сохранение| G[Train Set]
+    
+    subgraph Исходные данные
+    H[Источник 1]
+    I[Источник 2]
+    J[Источник N]
+    end
+    
+    subgraph Классы
+    K[Класс 1]
+    L[Класс 2]
+    M[Класс N]
+    end
+    
+    H --> A
+    I --> A
+    J --> A
+    
+    G --> K
+    G --> L
+    G --> M
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style G fill:#bbf,stroke:#333,stroke-width:2px

@@ -54,3 +54,4 @@ if __name__ == '__main__':
         f.truncate(0)
         f.write(write_context)
         f.close()
+    print(f"Finished!")

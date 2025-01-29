@@ -1,11 +1,20 @@
-src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/002_raw_data_img/out_freq5sec_rotated_highly_cleaned_for_labeling/IMG_3682"
-src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/out_freq5sec_rotated_highly_cleaned_for_labeling_REMAPED/IMG_3682"
-dst_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/004_output_model/visualize_remaped/IMG_3682"
+src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/005_verified_annotation/003_Gelya_28_01_25_IMG_3255/recived/selected_labels/images"
+src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/005_verified_annotation/003_Gelya_28_01_25_IMG_3255/recived/selected_labels/labels"
+dst_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/005_verified_annotation/003_Gelya_28_01_25_IMG_3255/recived/selected_labels/visulize"
+
+# classes:
+#   - "000_target_top"
+#   - "001_background_top"
+#   # - "002_strip"
+#   # - "003_coil"
+  # - "004_ERROR_unknown"
+
 classes:
   - "000_target_top"
   - "001_backround_top"
   - "002_strip"
   - "003_coil"
+  # - "004_ERROR_unknown"
 
 # previous classes
 # classes:
@@ -19,8 +28,10 @@ colors:
   - [171, 0, 111] # green_white
   - [255, 0, 18 ] # dark blue
   - [236, 255, 1] # green_white
+  # - [0, 255, 255] # yellow
 
 # Настройки отображения (опциональные)
 box_thickness: 4     # толщина рамок
-font_scale: 2     # размер шрифта
-font_thickness: 4    # толщина шрифта
+font_scale: 1     # размер шрифта
+font_thickness: 2    # толщина шрифта
+

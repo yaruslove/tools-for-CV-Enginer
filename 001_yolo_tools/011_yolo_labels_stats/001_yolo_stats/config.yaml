@@ -1,0 +1,8 @@
+path_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/005_verified_annotation/003_Gelya_28_01_25_IMG_3255/recived/selected_labels/labels"
+
+classes:
+  - "000_target_top"
+  - "001_backround_top"
+  - "002_strip"
+  - "003_coil"
+  - "004_unskown"

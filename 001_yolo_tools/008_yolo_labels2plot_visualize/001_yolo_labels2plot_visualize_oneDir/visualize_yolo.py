@@ -33,6 +33,7 @@ class Statistics:
         print(f"Total bounding boxes: {self.total_boxes}")
         print("\nBoxes per class:")
         for class_id, count in self.boxes_per_class.items():
+            print(f"class_id: {class_id}")
             class_name = class_names[class_id]
             print(f"  {class_name}: {count}")
         if self.failed_images:
@@ -204,6 +205,7 @@ def process_images(config):
                             values = list(map(float, line.strip().split()))
                             if len(values) == 5:
                                 class_id = int(values[0])
+
                                 boxes.append(values)
                                 stats.total_boxes += 1
                                 stats.boxes_per_class[class_id] += 1

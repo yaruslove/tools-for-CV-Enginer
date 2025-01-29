@@ -1,0 +1,44 @@
+
+# Путь к исходным данным, папкам с источниками
+path_data: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/002_quality_classifier/001_raw_data"
+# Путь к файлу с итоговыми данными
+path_final_data: "path_final_data.txt"
+
+
+# Путь для сохранения train set
+path_out: /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/002_quality_classifier/002_train_data/008_train_set
+# Имя директории для сохранения train set
+name_dir: val
+
+
+
+### Validation
+# Список источников - name folders
+list_sources:
+  - 002_001_AM_trip_december_2023
+  - 002_034_ImageNet_val_garbage
+
+
+### Train
+# list_sources:
+#   - 002_004_ECO_cult_I_Podmoskovie_may_2024
+#   - 002_016_AM_from_tg_until_1oct
+#   - 002_017_trip_oct_Sosnogorsk
+#   - 002_018_photo_panorama_lotok_21right_dhau
+#   - 002_019_photo_panorama_lotok_19_dhau
+#   - 002_020_photo_sony_Alex
+#   - 002_026_Death_leaf_Olga
+#   - 002_027_Death_leaf_Gelya
+#   - 002_032_logitech_19_lotok
+#   - 002_034_ImageNet_val_garbage
+
+
+# Суммарное количество изображений в классе по всем источникам, папкам
+amount_in_class: 1480
+
+# Список классов types =  [int, str]
+classes: [1, 2, 3, 4, 5, 6, 7]
+
+
+
+
