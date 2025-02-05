@@ -21,4 +21,4 @@ python3 grab_frame.py --src /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_
 python3 grab_frame.py --src /cam_videos --dst /out_frames --rate 20
 
 
-python3 grab_frame.py --src /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/001_raw_vids/tops_15_01_25 --dst /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/002_raw_data_img/out --rate 5
+python3 grab_frame.py --src /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/011_ECO_C_january_2025/001_raw_vids --dst /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/011_ECO_C_january_2025/002_raw_data_img/out_freq5 --rate 5

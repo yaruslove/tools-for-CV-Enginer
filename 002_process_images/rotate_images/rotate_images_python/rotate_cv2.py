@@ -42,6 +42,7 @@ dst=args.dst
 rotate_angle=args.rotate_angle
 
 for pth_image in tqdm(os.listdir(src)):
+    print(f"{pth_image}")
     img_np = cv.imread(os.path.join(src,pth_image))
     img_np=rotation(img_np, rotate_angle)
 

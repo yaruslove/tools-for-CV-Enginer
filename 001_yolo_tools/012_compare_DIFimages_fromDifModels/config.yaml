@@ -1,0 +1,9 @@
+
+
+001_src: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/003_expiriments/003_experiment_tops/out_inference/004/IMG_3260/imgs_drawed"
+001_printed_text: "conf 0.2, iou 0.95"
+002_src: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/003_expiriments/003_experiment_tops/out_inference/004/IMG_3260/my_script_draw"
+002_printed_text: "conf 0.2, iou 0.2"
+
+
+dst: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/003_expiriments/003_experiment_tops/out_inference/004/IMG_3260/joined"

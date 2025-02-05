@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+    <!-- Background -->
+    <rect width="800" height="400" fill="#f5f5f5"/>
+    
+    <!-- Left Image Container -->
+    <rect x="50" y="60" width="300" height="300" fill="#ffffff" stroke="#ddd"/>
+    
+    <!-- Right Image Container -->
+    <rect x="450" y="60" width="300" height="300" fill="#ffffff" stroke="#ddd"/>
+    
+    <!-- People Silhouettes and Boxes - Left Image -->
+    <g transform="translate(100,100)">
+        <!-- Person 1 -->
+        <path d="M50,180 L70,180 L60,120 L50,180 M60,120 C70,110 50,110 60,120 M60,150 L40,170 M60,150 L80,170" fill="#666"/>
+        <rect x="40" y="110" width="40" height="80" fill="none" stroke="#FF0000" stroke-width="2"/>
+        <text x="45" y="105" fill="#FF0000" font-size="12">person 0.92</text>
+        
+        <!-- Person 2 -->
+        <path d="M150,160 L170,160 L160,100 L150,160 M160,100 C170,90 150,90 160,100 M160,130 L140,150 M160,130 L180,150" fill="#666"/>
+        <rect x="140" y="90" width="40" height="80" fill="none" stroke="#FF0000" stroke-width="2"/>
+        <text x="145" y="85" fill="#FF0000" font-size="12">person 0.88</text>
+    </g>
+    
+    <!-- People Silhouettes and Boxes - Right Image -->
+    <g transform="translate(500,100)">
+        <!-- Person 1 -->
+        <path d="M50,180 L70,180 L60,120 L50,180 M60,120 C70,110 50,110 60,120 M60,150 L40,170 M60,150 L80,170" fill="#666"/>
+        <rect x="40" y="110" width="40" height="80" fill="none" stroke="#00FF00" stroke-width="2"/>
+        <text x="45" y="105" fill="#00FF00" font-size="12">person 0.95</text>
+        
+        <!-- Person 2 -->
+        <path d="M150,160 L170,160 L160,100 L150,160 M160,100 C170,90 150,90 160,100 M160,130 L140,150 M160,130 L180,150" fill="#666"/>
+        <rect x="140" y="90" width="40" height="80" fill="none" stroke="#00FF00" stroke-width="2"/>
+        <text x="145" y="85" fill="#00FF00" font-size="12">person 0.91</text>
+    </g>
+    
+    <!-- Text Headers -->
+    <rect x="50" y="20" width="300" height="30" fill="#ffffff"/>
+    <text x="100" y="40" font-size="14" fill="#333">conf: 0.5, iou: 0.2</text>
+    
+    <rect x="450" y="20" width="300" height="30" fill="#ffffff"/>
+    <text x="500" y="40" font-size="14" fill="#333">conf: 0.6, iou: 0.3</text>
+    
+    <!-- Arrow -->
+    <path d="M370,200 L430,200 M410,190 L430,200 L410,210" fill="none" stroke="#666" stroke-width="2"/>
+</svg>

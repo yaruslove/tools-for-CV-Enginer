@@ -1,0 +1,12 @@
+weights_yolo: "/home/yaroslav/Documents/001_Projects/002_tops/003_expiriments/003_expiriments_tops/exp_results/train/weights/best.pt"
+src: "/home/yaroslav/Documents/001_Projects/002_tops/005_labeling/001_data_28_01_25"
+dst: "/home/yaroslav/Documents/001_Projects/002_tops/003_expiriments/003_expiriments_tops/out_inference/004"
+classes: [0, 1]  # опционально
+
+
+# Параметры модели YOLO
+model_params:
+ agnostic_nms: true  # класс-независимый NMS
+ conf: 0.20         # порог уверенности
+ iou: 0.2          # порог IoU для NMS
+ show_conf: true    # показывать confidence score на боксах
