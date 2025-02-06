@@ -1,12 +1,32 @@
 weights_yolo: "/home/yaroslav/Documents/001_Projects/002_tops/003_expiriments/005_expiriments_tops/results/train/weights/best.pt"
 src: "/home/yaroslav/Documents/001_Projects/002_tops/005_labeling/003_data_06_02_25/src_IMG_3678"
-dst: "/home/yaroslav/Documents/001_Projects/002_tops/005_labeling/003_data_06_02_25/dst_3678"
+dst: "/home/yaroslav/Documents/001_Projects/002_tops/005_labeling/003_data_06_02_25/dst_IMG_3678"
 device: 0 # gpu
+classes: 
+  0: 00_target_top
+  1: 00_back_top
+  2: 02_strip
+  3: 03_coil
 
+colors: [  # RGB цвета для каждого класса
+  [255, 0, 0],    # класс 0 - красный
+  [0, 255, 0],    # класс 1 - зеленый
+  [0, 0, 255],    # класс 2 - синий
+  [255, 255, 0]   # класс 3 - желтый
+]
+
+
+visulise:
+  do: true
+  visulise_path: "/home/yaroslav/Documents/001_Projects/002_tops/005_labeling/003_data_06_02_25/vis_IMG_3678"
+  # Настройки отображения
+  box_thickness: 4
+  font_scale: 1
+  font_thickness: 2
 
 # Параметры модели YOLO
 model_params:
- agnostic_nms: true  # класс-независимый NMS
- conf: 0.20         # порог уверенности
- iou: 0.2          # порог IoU для NMS
- show_conf: true    # показывать confidence score на боксах
+ agnostic_nms: true
+ conf: 0.20
+ iou: 0.2
+ show_conf: true
