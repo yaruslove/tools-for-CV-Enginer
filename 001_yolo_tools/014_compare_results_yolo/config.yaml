@@ -1,0 +1,2 @@
+src: "/Users/yaroslav/Downloads/results"  # путь к директории с экспериментами
+dst: "/Users/yaroslav/Yandex.Disk.localized/ssd_disk/003_Learning_eng_code/002_programming/001_my_code_projects/000_stored_all_repos/CV/tools-for-CV-Enginer/001_yolo_tools/014_compare_results_yolo"     # путь для сохранения результатов

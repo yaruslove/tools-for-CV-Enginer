@@ -1,0 +1,5 @@
+experiment,model,imgsz,epochs,batch,best_epoch,train/box_loss,train/cls_loss,train/dfl_loss,metrics/precision(B),metrics/recall(B),metrics/mAP50(B),metrics/mAP50-95(B),val/box_loss,val/cls_loss,val/dfl_loss
+train,yolo11l.pt,1024,50,14,44.0,0.97715,0.64087,1.26501,0.81359,0.66747,0.73841,0.45699,1.4305,0.89082,1.777
+train2,yolo11s.pt,1024,50,16,48.0,1.01284,0.6479,1.15485,0.7471,0.66057,0.72125,0.42825,1.51461,0.95735,1.5536
+train3,yolo11n.pt,1024,60,16,54.0,1.17561,0.99526,1.26605,0.72306,0.69221,0.71579,0.39663,1.55679,1.19162,1.54193
+train4,yolo11s.pt,1024,240,16,228.0,0.58113,0.37488,0.90651,0.76121,0.72881,0.7617,0.44951,1.63756,0.95584,1.85532
