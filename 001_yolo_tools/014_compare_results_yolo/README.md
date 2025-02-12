@@ -10,6 +10,8 @@ A streamlit-based tool for analyzing and visualizing YOLOv8+ (9,10,11) training 
 - 🔄 Support for multiple training experiments
 - 📱 Responsive web interface
 - 💾 Automatic results export
+![](docs/01.png)  
+![](docs/02.png)
 
 ## Installation
 
