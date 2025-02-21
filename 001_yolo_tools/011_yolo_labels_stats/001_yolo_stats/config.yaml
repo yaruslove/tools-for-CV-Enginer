@@ -1,8 +1,7 @@
-path_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/002_train_data/006_train_set/data/val/labels"
+path_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_002_Kaagle_Ripe_Unripe_binary/002_raw_data_img/Riped_and_Unriped_Tomato_Dataset/labels"
 
 classes:
-  - "000_target_top"
-  - "001_backround_top"
-  - "002_strip"
-  - "003_coil"
-  - "004_loose_strip"
+  - "00_rippened"
+  - "01_unrippened"
+  - "02_unknown"
+  - "03_unknown"

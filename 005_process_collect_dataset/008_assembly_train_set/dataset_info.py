@@ -8,7 +8,8 @@ from utils.recount_distribute_sum import recount_distribute_sum
 from utils.save_trainset import save_trainset
 
 ## Read config
-config = get_yaml_config("configs/conf_dataset_info.yaml")
+path_config ="/Users/yaroslav/Yandex.Disk.localized/ssd_disk/003_Learning_eng_code/002_programming/001_my_code_projects/000_stored_all_repos/CV/tools-for-CV-Enginer/005_process_collect_dataset/008_assembly_train_set/configs/conf_dataset_info.yaml"
+config = get_yaml_config(path_config)
 
 
 # Config variables

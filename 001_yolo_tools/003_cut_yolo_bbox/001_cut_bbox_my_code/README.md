@@ -39,3 +39,10 @@ python3 cut_yolo_bbox.py \
 --imgs_pth '/home/yaroslav/Documents/001_Projects/005_car_number/001_data/001_raw_data/005_google_view/train/images' \
 --out_pth '/home/yaroslav/Documents/001_Projects/005_car_number/001_data/001_raw_data/005_google_view/train/cropp_yolo' \
 --classes 0=0,1=1,2=2,3=3,4=4,5=5,6=6,7=7,8=8,9=9
+
+
+python3 cut_yolo_bbox.py \
+--labels_pth '/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_002_Kaagle_Ripe_Unripe_binary/002_raw_data_img/Riped_and_Unriped_Tomato_Dataset/labels' \
+--imgs_pth '/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_002_Kaagle_Ripe_Unripe_binary/002_raw_data_img/Riped_and_Unriped_Tomato_Dataset/images' \
+--out_pth '/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_002_Kaagle_Ripe_Unripe_binary/002_raw_data_img/cropped' \
+--classes 0=riped,1=unriped

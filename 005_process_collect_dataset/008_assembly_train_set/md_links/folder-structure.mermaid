@@ -1,0 +1,50 @@
+graph TD
+    A[Root Project Directory] --> B[path_data]
+    B --> C1[002_001_AM_trip_december_2023]
+    B --> C2[002_004_ECO_cult_I_Podmoskovie_may_2024]
+    B --> C3[002_016_AM_from_tg_until_1oct]
+    B --> C4[002_017_trip_oct_Sosnogorsk]
+    B --> C5[...]
+
+    C1 --> D1[path_final_data.txt]
+    C1 --> E1[Final Class Directory]
+    E1 --> F1[Class 1]
+    E1 --> F2[Class 2]
+    E1 --> F3[Class 3]
+    E1 --> F4[Class 4]
+    E1 --> F5[Class 5]
+    E1 --> F6[Class 6]
+    E1 --> F7[Class 7]
+
+    F1 --> G1[Image1.jpg]
+    F1 --> G2[Image2.jpg]
+    F1 --> G3[...]
+
+    C2 --> D2[path_final_data.txt]
+    C2 --> E2[Final Class Directory]
+    E2 --> H1[Class 1]
+    E2 --> H2[Class 2]
+    E2 --> H3[Class 3]
+    E2 --> H4[...]
+
+    A --> I[path_out]
+    I --> J[train/val]
+    J --> K1[Class 1]
+    J --> K2[Class 2]
+    J --> K3[Class 3]
+    J --> K4[Class 4]
+    J --> K5[Class 5]
+    J --> K6[Class 6]
+    J --> K7[Class 7]
+
+    K1 --> L1[Image1.jpg]
+    K1 --> L2[Image2.jpg]
+    K1 --> L3[...]
+
+    A --> M[path_out_excel]
+    M --> N[all_sources_data.csv]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style I fill:#bfb,stroke:#333,stroke-width:2px
+    style M fill:#fbf,stroke:#333,stroke-width:2px

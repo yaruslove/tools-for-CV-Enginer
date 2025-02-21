@@ -1,0 +1,4 @@
+src_path: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/002_train_data/001_train_18_02_25/data/cropped"
+dst_path: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/002_train_data/001_train_18_02_25/data/data"
+train_percent: 85  # например, 80% для train
+# validation считается автоматически

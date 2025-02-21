@@ -1,0 +1,17 @@
+# Пути к директориям
+labels_pth: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_005_roboflow_3_classes/002_raw_data_img/Tomato detection and recognition.v10i.yolov11/train/labels"
+imgs_pth: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_005_roboflow_3_classes/002_raw_data_img/002_data_way_split_points/splitted_imgs_deep_seek/clear"
+out_pth: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_005_roboflow_3_classes/002_raw_data_img/002_data_way_split_points/cropped"
+
+# Классы
+classes:
+  0: "tomato_ripe"
+  1: "tomato_rotten"
+  2: "tomato_unripe"
+
+
+
+
+# classes:
+#   0: "unriped"
+#   1: "riped"

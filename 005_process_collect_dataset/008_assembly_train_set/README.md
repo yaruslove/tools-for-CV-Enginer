@@ -15,6 +15,66 @@
     └── tools.py              # Вспомогательные функции
 ```
 
+### Структура папок поторая обрабатывается:
+
+```bash
+Root Project Directory/
+│
+├── path_data/
+│   ├── 002_001_AM_trip_december_2023/
+│   │   ├── path_final_data.txt
+│   │   └── <directory_pointed_by_txt>/
+│   │       ├── 1/
+│   │       │   ├── image1.jpg
+│   │       │   ├── image2.jpg
+│   │       │   └── ...
+│   │       ├── 2/
+│   │       │   ├── image1.jpg
+│   │       │   ├── image2.jpg
+│   │       │   └── ...
+│   │       ├── 3/
+│   │       ├── 4/
+│   │       ├── 5/
+│   │       ├── 6/
+│   │       └── 7/
+│   │
+│   ├── 002_004_ECO_cult_I_Podmoskovie_may_2024/
+│   │   ├── path_final_data.txt
+│   │   └── <directory_pointed_by_txt>/
+│   │       ├── 1/
+│   │       │   ├── image1.jpg
+│   │       │   ├── image2.jpg
+│   │       │   └── ...
+│   │       ├── 2/
+│   │       │   ├── image1.jpg
+│   │       │   ├── image2.jpg
+│   │       │   └── ...
+│   │       └── ...
+│   │
+│   ├── 002_016_AM_from_tg_until_1oct/
+│   ├── 002_017_trip_oct_Sosnogorsk/
+│   ├── 002_018_photo_panorama_lotok_21right_dhau/
+│   └── ...
+│
+├── path_out/
+│   └── train/ (or val/)
+│       ├── 1/
+│       │   ├── image1.jpg
+│       │   ├── image2.jpg
+│       │   └── ...
+│       ├── 2/
+│       ├── 3/
+│       ├── 4/
+│       ├── 5/
+│       ├── 6/
+│       ├── 7/
+│       └── df_redistribute.csv
+│
+└── path_out_excel/
+    └── all_sources_data.csv
+```
+
+
 ## Процесс обработки данных
 
 Процесс обработки и подготовки данных состоит из нескольких этапов:
