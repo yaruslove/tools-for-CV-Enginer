@@ -1,0 +1,11 @@
+# Configuration for JSON to YOLO Segmentation Converter
+
+# Directory containing JSON files to be converted
+src_json: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/data_ninja/Train/ann"
+
+# Directory where YOLO format files will be saved
+out_path: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train"
+
+# Optional parameters can be added here as needed
+# verbose: true
+# skip_existing: false
