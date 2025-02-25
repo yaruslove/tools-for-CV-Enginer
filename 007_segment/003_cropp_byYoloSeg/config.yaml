@@ -1,0 +1,4 @@
+path_images: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train_data/images"
+path_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train_data/labels"
+path_classes: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train_data/classes.txt"
+path_cropp: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train_data/cropped_2"
