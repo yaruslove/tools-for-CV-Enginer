@@ -1,2 +1,2 @@
-src: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/003_expiriments/006_expiriments_tops/results"  # путь к директории с экспериментами
-dst: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/003_expiriments/006_expiriments_tops/compare_results"     # путь для сохранения результатов
+src: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/003_expiriments/004_expiriments_tops/exp_results"  # путь к директории с экспериментами
+dst: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/003_expiriments/004_expiriments_tops/results"     # путь для сохранения результатов

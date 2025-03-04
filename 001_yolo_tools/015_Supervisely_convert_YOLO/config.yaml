@@ -1,0 +1,2 @@
+src: '/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod-DatasetNinja/Train/ann'
+dst: '/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/labels'

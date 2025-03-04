@@ -1,0 +1,5 @@
+src: /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/002_train_data/002_train_25_02_25/002_data/train
+dst_csv: /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/002_train_data/002_train_25_02_25/002_data/train.csv
+
+## Расположение таблицы
+orientation: horizontal  # horizontal или vertical # расположение таблицы

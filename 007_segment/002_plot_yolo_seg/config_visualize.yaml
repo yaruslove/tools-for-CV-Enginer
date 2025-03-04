@@ -1,16 +1,16 @@
 # Configuration for YOLO Segmentation Visualizer
 
 # Directory containing original images
-src_imgs: "//Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train_data/images"
+src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/images"
 
 # Directory containing YOLO segmentation labels (.txt files)
-src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train_data/labels"
+src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/labels"
 
 # Path to classes.txt file
-classes_txt: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/train_data/classes.txt"
+classes_txt: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/classes.txt"
 
 # Directory where visualized images will be saved
-dst_plotted: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_007_datasetninja_LaboroTomato/002_raw_data_img/yolo_converted_seg/plotted"
+dst_plotted: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/plotted"
 
 # Optional parameters
 # visualization:

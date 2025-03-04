@@ -1,0 +1,6 @@
+# Configuration for random crop segmenter
+src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_010_photo_iphone_Yaroslav/002_raw_data_imgs1/data_imgs"
+dst_cropp: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_010_photo_iphone_Yaroslav/002_raw_data_imgs1/cropp"
+numbCropp_PerImage: 3  # Number of crops to generate per input image
+min_size: [98, 98]  # Minimum crop size [width, height]
+max_size: [232, 232]  # Maximum crop size [width, height]

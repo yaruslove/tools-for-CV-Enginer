@@ -1,22 +1,31 @@
 
 # Путь к исходным данным, папкам с источниками
-path_data: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/002_quality_classifier/001_raw_data"
+path_data: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/002_train_data/003_train_25_02_25/data_folders/train"
 # Путь к файлу с итоговыми данными
 path_final_data: "path_final_data.txt"
 
 
 # Путь для сохранения train set
-path_out: /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/002_quality_classifier/002_train_data/008_train_set
-# Имя директории для сохранения train set
-name_dir: val
+path_out: /Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/002_train_data/003_train_25_02_25/001_data
+# Имя директории для сохранения train или set
+name_dir: train
 
 
 
 ### Validation
 # Список источников - name folders
+# list_sources:
+#   - 003_001_Dim_Yar_Part3
+
 list_sources:
-  - 002_001_AM_trip_december_2023
-  - 002_034_ImageNet_val_garbage
+  - 003_001_Dim_Yar_001
+  - 003_001_Dim_Yar_Part1
+  - 003_001_Dim_Yar_Part2
+  - 003_002_Kaagle_Ripe_Unripe_binary
+  - 003_003_datasetninja_tomatOD
+  - 003_004_mendeleyData_Immature
+  - 003_004_mendeleyData_Mature
+  - 003_005_roboflow_3_classes
 
 
 ### Train
@@ -34,10 +43,12 @@ list_sources:
 
 
 # Суммарное количество изображений в классе по всем источникам, папкам
-amount_in_class: 1480
+amount_in_class: 1200
 
 # Список классов types =  [int, str]
-classes: [1, 2, 3, 4, 5, 6, 7]
+classes: ["1", "2", "3", "4", "5", "6"]
+# classes: ["1", "2", "3", "4", "5", "6", "13_rotten", "14_garbage", "15_many"]
+# classes: [1, 2, 3, 4, 5, 6, 7]
 
 
 

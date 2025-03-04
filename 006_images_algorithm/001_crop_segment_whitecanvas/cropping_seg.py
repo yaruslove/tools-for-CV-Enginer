@@ -128,8 +128,8 @@ def process_directory(src_path, dst_path):
 
 def main():
     # Пути к директориям (можно заменить на аргументы командной строки)
-    src_path = "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_001_Dima_Yaroslav_20_11_24_TkPodmoskovie_video/003_unverified_annotation/001_prepare_data_Gelya_18_02_25/not_cropped/Part3"
-    dst_path = "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_001_Dima_Yaroslav_20_11_24_TkPodmoskovie_video/003_unverified_annotation/001_prepare_data_Gelya_18_02_25/cropped_centr/Part3"
+    src_path = "/Users/yaroslav/Downloads/Telegram Desktop/inferenced_nikita/masked_images"
+    dst_path = "/Users/yaroslav/Downloads/Telegram Desktop/inferenced_nikita/cropped"
     
     try:
         process_directory(src_path, dst_path)

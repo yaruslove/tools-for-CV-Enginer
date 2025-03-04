@@ -106,7 +106,7 @@ def draw_segmentation(img_path, label_path, output_path, class_names, colors):
 
 def main():
     # Read configuration from YAML file
-    config_path = "config_visualize.yaml"
+    config_path = "config.yaml"
     
     # Check if config file exists
     if not os.path.exists(config_path):

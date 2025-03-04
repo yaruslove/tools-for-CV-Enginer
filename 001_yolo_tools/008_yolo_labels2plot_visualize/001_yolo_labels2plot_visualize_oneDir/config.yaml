@@ -1,6 +1,6 @@
-src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/005_verified_annotation/006_Gelya_31_01_25_IMG_3681_Partly_II/selected/images"
-src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/005_verified_annotation/006_Gelya_31_01_25_IMG_3681_Partly_II/selected/labels"
-dst_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/001_tops_detection/001_raw_data/010_Dima_16_01_25_TK_podmoskovie/005_verified_annotation/006_Gelya_31_01_25_IMG_3681_Partly_II/selected/visual"
+src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/images"
+src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/labels"
+dst_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/plotted"
 
 # classes:
 #   - "000_target_top"
@@ -10,11 +10,11 @@ dst_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/002_tops/0
   # - "004_ERROR_unknown"
 
 classes:
-  - "000_target_top"
-  - "001_backround_top"
-  - "002_strip"
-  - "003_coil"
-  - "004_loose_strip"
+  - "fully-ripe"
+  - "semi-ripe"
+  - "unripe"
+  # - "003_coil"
+  # - "004_loose_strip"
 
 # previous classes
 # classes:
@@ -24,12 +24,11 @@ classes:
 #   - "003_strip"
 
 colors:
-  - [0, 0, 255] # red
-  - [171, 0, 111] # green_white
-  - [255, 0, 18 ] # dark blue
-  - [236, 255, 1] # green_white
-  - [0, 255, 255] # yellow
-
+  - [0, 0, 255] 
+  - [255, 0, 18 ]  
+  - [0, 255, 255]
+  # - [236, 255, 1] 
+  # - [ 171, 0, 111]
 # Настройки отображения (опциональные)
 box_thickness: 4     # толщина рамок
 font_scale: 1     # размер шрифта
