@@ -1,0 +1,4 @@
+classes_txt: /path/to/classes.txt
+dst_plotted: /path/to/output_plotted_images
+src_imgs: /path/to/images
+src_labels: /path/to/labels

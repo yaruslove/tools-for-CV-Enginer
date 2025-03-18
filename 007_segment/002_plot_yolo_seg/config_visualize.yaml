@@ -1,16 +1,16 @@
 # Configuration for YOLO Segmentation Visualizer
 
 # Directory containing original images
-src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/images"
+src_imgs: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/004_diseases_segmentation/004_017_trip_Sosnogorsk_prelabelled/005_verified_annotation/001_Olga_11_03_25/recived/project-10-at-2025-03-11-10-40-38b2dd0a/images"
 
 # Directory containing YOLO segmentation labels (.txt files)
-src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/labels"
+src_labels: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/004_diseases_segmentation/004_017_trip_Sosnogorsk_prelabelled/005_verified_annotation/001_Olga_11_03_25/recived/project-10-at-2025-03-11-10-40-38b2dd0a/labels"
 
 # Path to classes.txt file
-classes_txt: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/classes.txt"
+classes_txt: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/004_diseases_segmentation/004_017_trip_Sosnogorsk_prelabelled/005_verified_annotation/001_Olga_11_03_25/recived/project-10-at-2025-03-11-10-40-38b2dd0a/classes.txt"
 
 # Directory where visualized images will be saved
-dst_plotted: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/003_tomatos/003_tomatoes_ripeness_stage/001_raw_data/003_003_datasetninja_tomatOD/002_raw_data_img/tomatod_yolo/train/plotted"
+dst_plotted: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/004_diseases_segmentation/004_017_trip_Sosnogorsk_prelabelled/005_verified_annotation/001_Olga_11_03_25/recived/project-10-at-2025-03-11-10-40-38b2dd0a/plotted"
 
 # Optional parameters
 # visualization:

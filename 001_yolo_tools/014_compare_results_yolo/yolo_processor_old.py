@@ -18,14 +18,13 @@ class YOLOResultsProcessor:
         with open(file_path, 'r') as f:
             return yaml.safe_load(f)
 
-    def _get_experiment_dirs(self) -> List[Path]:
-        """Get all experiment directories that contain required files."""
-        experiment_dirs = []
+    def _get_train_dirs(self) -> List[Path]:
+        """Get all train directories sorted by number."""
+        train_dirs = []
         for d in self.src_dir.iterdir():
-            if d.is_dir() and (d / 'args.yaml').exists() and (d / 'results.csv').exists():
-                experiment_dirs.append(d)
-        # Sort directories alphabetically
-        return sorted(experiment_dirs)
+            if d.is_dir() and d.name.startswith('train'):
+                train_dirs.append(d)
+        return sorted(train_dirs, key=lambda x: int(x.name.replace('train', '')) if x.name != 'train' else 0)
 
     def _get_best_metrics(self, results_csv: Path) -> pd.Series:
         """Get metrics for epoch with best mAP50-95(B)."""
@@ -33,17 +32,20 @@ class YOLOResultsProcessor:
         return df.loc[df['metrics/mAP50-95(B)'].idxmax()]
 
     def create_summary_table(self) -> pd.DataFrame:
-        """Create summary table from all experiment directories."""
+        """Create summary table from all train directories."""
         rows = []
-        for exp_dir in self._get_experiment_dirs():
-            args_path = exp_dir / 'args.yaml'
-            results_path = exp_dir / 'results.csv'
+        for train_dir in self._get_train_dirs():
+            args_path = train_dir / 'args.yaml'
+            results_path = train_dir / 'results.csv'
             
+            if not (args_path.exists() and results_path.exists()):
+                continue
+
             args = self._read_yaml(args_path)
             best_metrics = self._get_best_metrics(results_path)
 
             row = {
-                'experiment': exp_dir.name,
+                'experiment': train_dir.name,
                 'model': args['model'],
                 'imgsz': args['imgsz'],
                 'epochs': args['epochs'],
@@ -69,9 +71,10 @@ class YOLOResultsProcessor:
     def get_training_data(self) -> Dict[str, pd.DataFrame]:
         """Get training data from all experiments."""
         data = {}
-        for exp_dir in self._get_experiment_dirs():
-            results_path = exp_dir / 'results.csv'
-            data[exp_dir.name] = pd.read_csv(results_path)
+        for train_dir in self._get_train_dirs():
+            results_path = train_dir / 'results.csv'
+            if results_path.exists():
+                data[train_dir.name] = pd.read_csv(results_path)
         return data
 
 if __name__ == '__main__':

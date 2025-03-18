@@ -1,0 +1,3 @@
+src1: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/004_diseases_segmentation/004_017_trip_Sosnogorsk_prelabelled/005_verified_annotation/001_Olga_11_03_25/recived/project-10-at-2025-03-11-10-40-38b2dd0a/plotted"
+src2: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/004_diseases_segmentation/004_017_trip_Sosnogorsk_prelabelled/005_verified_annotation/001_Olga_11_03_25/recived/project-10-at-2025-03-11-10-40-38b2dd0a/images"
+dst: "/Volumes/Orico/projetcs_sbs/001_green-houses/001_DS_models/001_leaves_diseases/004_diseases_segmentation/004_017_trip_Sosnogorsk_prelabelled/005_verified_annotation/001_Olga_11_03_25/recived/project-10-at-2025-03-11-10-40-38b2dd0a/combined"

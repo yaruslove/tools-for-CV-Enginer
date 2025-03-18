@@ -106,7 +106,8 @@ def draw_segmentation(img_path, label_path, output_path, class_names, colors):
 
 def main():
     # Read configuration from YAML file
-    config_path = "config.yaml"
+    # config_path = "config.yaml"
+    config_path = "config_visualize.yaml"
     
     # Check if config file exists
     if not os.path.exists(config_path):
@@ -177,7 +178,7 @@ def main():
         
         img_path = os.path.join(src_imgs, img_file)
         label_path = os.path.join(src_labels, label_file)
-        output_path = os.path.join(dst_plotted, f"{base_name}_segmentation.jpg")
+        output_path = os.path.join(dst_plotted, img_file) # f"{base_name}_segmentation.jpg"
         
         # Draw segmentation
         result = draw_segmentation(img_path, label_path, output_path, 
