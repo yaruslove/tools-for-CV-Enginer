@@ -1,7 +1,5 @@
 ## Скрипт заменяет указанные yolo-лейблы в txt файлах по словарю --zamena 0=1,2=3,7=10.
 
-
-
 ```
 python3 change_yolo_classes.py \
 --labels_pth /Volumes/test/ \

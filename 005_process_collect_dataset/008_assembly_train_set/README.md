@@ -180,11 +180,5 @@ python main_assembly.py
 - natsort
 - tqdm
 
-## Лицензия
 
-MIT License
-
-## Авторы
-
-- Команда разработчиков
 

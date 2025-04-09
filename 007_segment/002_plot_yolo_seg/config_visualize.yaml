@@ -1,16 +1,16 @@
 # Configuration for YOLO Segmentation Visualizer
 
 # Directory containing original images
-src_imgs: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_013_AM_from_tg/005_verified_annotation/001_GelOlg/recived/Olga/project-3-at-2025-03-24-16-20-dc9c43dc/images"
+src_imgs: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/images"
 
 # Directory containing YOLO segmentation labels (.txt files)
-src_labels: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_013_AM_from_tg/005_verified_annotation/001_GelOlg/recived/Olga/project-3-at-2025-03-24-16-20-dc9c43dc/labels"
+src_labels: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/labels"
 
 # Path to classes.txt file
-classes_txt: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_013_AM_from_tg/005_verified_annotation/001_GelOlg/recived/Olga/project-3-at-2025-03-24-16-20-dc9c43dc/classes.txt"
+classes_txt: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/classes.txt"
 
 # Directory where visualized images will be saved
-dst_plotted: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_013_AM_from_tg/005_verified_annotation/001_GelOlg/recived/Olga/project-3-at-2025-03-24-16-20-dc9c43dc/plotted"
+dst_plotted: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/plotted"
 
 # Optional parameters
 # visualization:
