@@ -1,4 +1,4 @@
-src1: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_013_AM_from_tg/005_verified_annotation/001_GelOlg/recived/Olga/project-3-at-2025-03-24-16-20-dc9c43dc/plotted"
-src2: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_013_AM_from_tg/005_verified_annotation/001_GelOlg/recived/Olga/project-3-at-2025-03-24-16-20-dc9c43dc/images"
-dst: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_013_AM_from_tg/005_verified_annotation/001_GelOlg/recived/Olga/project-3-at-2025-03-24-16-20-dc9c43dc/combine"
+src1: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020_photo_Sony_Aelx_16_12_24/006_labeling/результат_разметки/002_разметка_14042025_final_Гелия/project-32-at-2025-04-14-13-18-a1a0503f/images"
+src2: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020_photo_Sony_Aelx_16_12_24/006_labeling/результат_разметки/002_разметка_14042025_final_Гелия/project-32-at-2025-04-14-13-18-a1a0503f/plotted"
+dst: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020_photo_Sony_Aelx_16_12_24/006_labeling/результат_разметки/002_разметка_14042025_final_Гелия/project-32-at-2025-04-14-13-18-a1a0503f/combine"
 

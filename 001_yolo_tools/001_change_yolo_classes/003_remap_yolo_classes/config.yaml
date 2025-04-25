@@ -1,0 +1,14 @@
+src_annot_dir: "/Volumes/T7_Shiled/green/001_data_green/002_Tops_tomato/001_detector/001_raw_data/004_Dima_24_10_24_TkPodmoskovie_video/006_labeling/Размеченно/003_Ольга_31_10_24/project-7-at-2024-10-31-15-07-8d628741_copy/labels"
+dst_annot_dir: "/Volumes/T7_Shiled/green/001_data_green/002_Tops_tomato/001_detector/001_raw_data/004_Dima_24_10_24_TkPodmoskovie_video/006_labeling/Размеченно/003_Ольга_31_10_24/tweaked_classes/labels"
+dst_classes: "/Volumes/T7_Shiled/green/001_data_green/002_Tops_tomato/001_detector/001_raw_data/004_Dima_24_10_24_TkPodmoskovie_video/006_labeling/Размеченно/003_Ольга_31_10_24/tweaked_classes/classes.txt"
+
+was:
+  - "background_top"
+  - "trarget_top"
+
+remap:
+  00_target_top: trarget_top
+  01_background_top: background_top
+  02_strip: none
+  03_coil: none
+  04_loose_strip: none

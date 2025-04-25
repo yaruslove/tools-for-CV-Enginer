@@ -1,16 +1,16 @@
 # Configuration for YOLO Segmentation Visualizer
 
 # Directory containing original images
-src_imgs: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/images"
+src_imgs: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/images"
 
 # Directory containing YOLO segmentation labels (.txt files)
-src_labels: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/labels"
+src_labels: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/labels"
 
 # Path to classes.txt file
-classes_txt: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/classes.txt"
+classes_txt: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/classes.txt"
 
 # Directory where visualized images will be saved
-dst_plotted: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020/project-2-at-2025-04-01-17-30-b7059fbd/plotted"
+dst_plotted: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/plotted"
 
 # Optional parameters
 # visualization:
