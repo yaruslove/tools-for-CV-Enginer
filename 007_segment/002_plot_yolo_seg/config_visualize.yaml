@@ -1,16 +1,16 @@
 # Configuration for YOLO Segmentation Visualizer
 
 # Directory containing original images
-src_imgs: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/images"
+src_imgs: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_280425_Ольга/project-15-at-2025-04-28-13-53-86de9d8c/images"
 
 # Directory containing YOLO segmentation labels (.txt files)
-src_labels: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/labels"
+src_labels: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_280425_Ольга/project-15-at-2025-04-28-13-53-86de9d8c/labels"
 
 # Path to classes.txt file
-classes_txt: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/classes.txt"
+classes_txt: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_280425_Ольга/project-15-at-2025-04-28-13-53-86de9d8c/classes.txt"
 
 # Directory where visualized images will be saved
-dst_plotted: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/001_разметка_здоровый класс/001_здоровый класс_17042025_Гелия/project-39-at-2025-04-17-17-37-125bfa83/plotted"
+dst_plotted: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_280425_Ольга/project-15-at-2025-04-28-13-53-86de9d8c/plotted"
 
 # Optional parameters
 # visualization:

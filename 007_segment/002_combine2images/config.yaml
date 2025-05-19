@@ -1,4 +1,4 @@
-src1: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020_photo_Sony_Aelx_16_12_24/006_labeling/результат_разметки/002_разметка_14042025_final_Гелия/project-32-at-2025-04-14-13-18-a1a0503f/images"
-src2: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020_photo_Sony_Aelx_16_12_24/006_labeling/результат_разметки/002_разметка_14042025_final_Гелия/project-32-at-2025-04-14-13-18-a1a0503f/plotted"
-dst: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_020_photo_Sony_Aelx_16_12_24/006_labeling/результат_разметки/002_разметка_14042025_final_Гелия/project-32-at-2025-04-14-13-18-a1a0503f/combine"
+src1: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_280425_Ольга/project-15-at-2025-04-28-13-53-86de9d8c/images"
+src2: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_280425_Ольга/project-15-at-2025-04-28-13-53-86de9d8c/plotted"
+dst: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_280425_Ольга/project-15-at-2025-04-28-13-53-86de9d8c/combined"
 

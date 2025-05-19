@@ -1,0 +1,21 @@
+# Configuration for combined YOLO segmentation visualization
+# Directory containing original images
+src_imgs: "/Volumes/T7_Shiled/green/001_data_green/001_leaves/004_definite_seg/001_raw_data/004_022_photo_iphone_Yaroslav/006_labeling/результат разметки/005_разметка_средняя степень/001_разметка_средняя_степень_290425_Гелия/project-45-at-2025-04-30-05-17-06735457/images"
+
+# Directory containing YOLO segmentation labels (.txt files)
+src_labels: "/path/to/yolo/labels"
+
+# Path to classes.txt file
+classes_txt: "/path/to/classes.txt"
+
+# Directory where visualized images with segmentation will be saved
+dst_plotted: "/path/to/visualized/images"
+
+# Directory where combined images (original + segmentation side by side) will be saved
+combined: "/path/to/combined/images"
+
+# Optional parameters can be added here if needed in the future:
+# visualization:
+#   alpha: 0.4  # Transparency of segmentation masks (0-1)
+#   linewidth: 1.5  # Width of segmentation outlines
+#   dpi: 200  # Resolution of output images
