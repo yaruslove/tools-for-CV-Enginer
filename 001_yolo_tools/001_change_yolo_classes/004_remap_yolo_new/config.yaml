@@ -1,0 +1,37 @@
+src_annot_dir: "/Volumes/T7_Shiled/projects/CK-10/data/001_raw_data/001_001_SH17_kaagle/003_unverified_annotation/archive/labels"
+dst_annot_dir: "/Volumes/T7_Shiled/projects/CK-10/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/01_hypothesis/data/labels"
+dst_classes: "/Volumes/T7_Shiled/projects/CK-10/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/01_hypothesis/data/classes.txt"
+
+
+as_is_classes:
+    - 0_person
+    - 1_ear
+    - 2_ear-mufs
+    - 3_face
+    - 4_face-guard
+    - 5_face-mask
+    - 6_foot
+    - 7_tool
+    - 8_glasses
+    - 9_gloves
+    - 10_helmet
+    - 11_hands
+    - 12_head
+    - 13_medical-suit
+    - 14_shoes
+    - 15_safety-suit
+    - 16_safety-vest
+
+
+remap:
+    0_person: 01_Person
+    3_face: 03_Face
+    10_helmet: 04_Helmet
+    12_head: 02_Head
+
+
+order_new_classes:
+    - 01_Person
+    - 02_Head
+    - 03_Face
+    - 04_Helmet

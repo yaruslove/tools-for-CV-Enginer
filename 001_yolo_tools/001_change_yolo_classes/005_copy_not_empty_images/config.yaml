@@ -1,0 +1,15 @@
+# Конфигурация для скрипта копирования изображений по YOLO лейблам
+
+# Путь к директории с файлами разметки (.txt файлы)
+src_labels: "/Volumes/T7_Shiled/projects/CK-10/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/01_hypothesis/data/labels"
+
+# Путь к директории с исходными изображениями
+src_images: "/Volumes/T7_Shiled/projects/CK-10/data/001_raw_data/001_001_SH17_kaagle/003_unverified_annotation/archive/images" 
+
+# Путь к директории куда копировать отфильтрованные изображения
+dst_images: "/Volumes/T7_Shiled/projects/CK-10/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/01_hypothesis/data/images"
+
+# Пример реальных путей:
+# src_labels: "C:/dataset/labels"
+# src_images: "C:/dataset/images"
+# dst_images: "C:/dataset/filtered_images"

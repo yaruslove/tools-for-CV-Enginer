@@ -6,12 +6,9 @@ was:
   - "background_top"
   - "trarget_top"
 
-
-
-# remap:
-#   00_target_top: trarget_top
-#   01_background_top: background_top
-#   02_strip: none
-#   03_coil: none
-#   04_loose_strip: none
-
+remap:
+  00_target_top: trarget_top
+  01_background_top: background_top
+  02_strip: none
+  03_coil: none
+  04_loose_strip: none
