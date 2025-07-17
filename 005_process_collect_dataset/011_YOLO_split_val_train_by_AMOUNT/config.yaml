@@ -1,0 +1,14 @@
+# Путь к исходным данным (где находятся папки images и labels)
+src_data: /fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/001_hypothesis/all_data
+
+# Путь для сохранения разделенного датасета 
+# (будут созданы папки train и val)
+dst_data: /fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/001_hypothesis/train_data_part
+
+# Количество изображений для обучающей выборки
+# Будут выбраны изображения с наибольшим количеством разметки
+train: 2000
+
+# Количество изображений для валидационной выборки
+# Будут выбраны следующие изображения после train выборки
+val: 70
