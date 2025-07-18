@@ -1,0 +1,33 @@
+# YOLO Video Inference Configuration
+
+# Source: can be single video file or directory with videos
+
+# razmetka280525_9sec
+# Destination: can be single video file or directory for output
+# src_video:  /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/in/004_video/razmetka280525_9sec.mp4
+# dst_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/out/004_video/razmetka280525_9sec.mp4   # "output/result.mp4"  # or "output/"
+
+# razmetka280525
+src_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/in/004_video/razmetka280525.mp4   # "input/video.mp4"  # or "input/videos/"
+dst_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/out/004_video/razmetka280525.mp4   # "output/result.mp4"  # or "output/"
+
+
+
+
+# Model weights path
+path_weight: "/fanxiangssd/yaroslav/projects/004_sk10/models_exp/005_yoloV11_my_Hyp001Person/construction_detection/person_detection_v1/weights/best.pt"
+
+# Inference parameters
+conf: 0.25  # confidence threshold
+iou: 0.45   # IoU threshold for NMS
+imgsz: 1280 # input image size for model (should match training imgsz)
+batch: 32   # batch size for inference
+
+# Optimization settings
+fp16: true   # enable FP16 precision (requires CUDA)
+max_memory_frames: 2000  # load video to memory if frames <= this value (0 to disable)
+
+# Advanced settings (optional)
+# gpu_preprocessing: true  # use GPU for letterbox resize
+# warmup_batches: 3        # number of warmup batches for stable timing
+
