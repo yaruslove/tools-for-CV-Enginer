@@ -7,168 +7,24 @@ from pathlib import Path
 from ultralytics import YOLO
 from typing import List, Tuple, Optional
 from tqdm import tqdm
-import torchvision.transforms as T
 
 
 def load_config(config_path: str = "config.yaml") -> dict:
-    """Load configuration from YAML file."""
     with open(config_path, 'r') as f:
         return yaml.safe_load(f)
 
 
-def get_video_paths(src_video: str) -> List[Path]:
-    """Get list of video file paths from source."""
-    src_path = Path(src_video)
-    if src_path.is_file():
-        return [src_path]
-    if src_path.is_dir():
-        extensions = ['.mp4', '.avi', '.mov', '.mkv', '.webm']
-        return [p for p in src_path.rglob('*') if p.suffix.lower() in extensions]
-    raise AssertionError(f"Source path does not exist: {src_video}")
+def get_device(config: dict) -> torch.device:
+    device_str = config.get('device', 'auto')
+    if device_str == 'auto' or (device_str.startswith('cuda') and not torch.cuda.is_available()):
+        return torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    return torch.device(device_str if device_str.startswith(('cuda', 'cpu')) else 'cpu')
 
 
-def validate_paths(src_video: str, dst_video: str) -> None:
-    """Validate that src and dst paths are compatible."""
-    src_path = Path(src_video)
-    dst_path = Path(dst_video)
+def load_frames_to_memory(video_path: Path, max_frames: int) -> Optional[np.ndarray]:
+    if max_frames <= 0:
+        return None
     
-    if src_path.is_file():
-        assert dst_path.suffix, "If src_video is file, dst_video must be file too"
-    elif src_path.is_dir():
-        assert not dst_path.suffix, "If src_video is directory, dst_video must be directory too"
-    else:
-        raise AssertionError(f"Invalid src_video path: {src_video}")
-
-
-def letterbox_resize_torch(frames: torch.Tensor, imgsz: int, device: torch.device) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-    """Optimized letterbox resize using torch operations."""
-    B, H, W, C = frames.shape
-    
-    # Calculate scale factor
-    scale = imgsz / max(H, W)
-    new_h, new_w = int(H * scale), int(W * scale)
-    
-    # Resize using torch interpolate
-    frames = frames.permute(0, 3, 1, 2).float() / 255.0  # BHWC -> BCHW and normalize
-    frames = torch.nn.functional.interpolate(frames, size=(new_h, new_w), mode='bilinear', align_corners=False)
-    
-    # Calculate padding
-    pad_h = (imgsz - new_h) // 2
-    pad_w = (imgsz - new_w) // 2
-    
-    # Apply padding
-    frames = torch.nn.functional.pad(frames, (pad_w, imgsz - new_w - pad_w, pad_h, imgsz - new_h - pad_h), 
-                                   value=114/255.0)
-    
-    # Return scale info as tensors for vectorized operations
-    ratios = torch.full((B,), scale, device=device, dtype=torch.float32)
-    pads = torch.tensor([[pad_w, pad_h]], device=device, dtype=torch.float32).repeat(B, 1)
-    
-    return frames, ratios, pads
-
-
-def preprocess_batch_optimized(frames: List[np.ndarray], imgsz: int, device: torch.device) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-    """Optimized preprocessing with torch operations."""
-    # Convert to tensor batch
-    batch = torch.from_numpy(np.stack(frames)).to(device)
-    
-    # RGB conversion and letterbox resize in one go
-    batch = batch[..., [2, 1, 0]]  # BGR to RGB
-    batch, ratios, pads = letterbox_resize_torch(batch, imgsz, device)
-    
-    return batch, ratios, pads
-
-
-def unscale_boxes_vectorized(boxes: torch.Tensor, ratios: torch.Tensor, pads: torch.Tensor, 
-                           orig_shapes: torch.Tensor) -> torch.Tensor:
-    """Vectorized box unscaling on GPU."""
-    if boxes.numel() == 0:
-        return boxes
-    
-    # Get batch indices for each box
-    batch_indices = boxes[:, 0].long()
-    
-    # Unscale coordinates
-    boxes[:, 1] = (boxes[:, 1] - pads[batch_indices, 0]) / ratios[batch_indices]  # x1
-    boxes[:, 2] = (boxes[:, 2] - pads[batch_indices, 1]) / ratios[batch_indices]  # y1
-    boxes[:, 3] = (boxes[:, 3] - pads[batch_indices, 0]) / ratios[batch_indices]  # x2
-    boxes[:, 4] = (boxes[:, 4] - pads[batch_indices, 1]) / ratios[batch_indices]  # y2
-    
-    # Clip to image bounds using proper tensor operations
-    zero = torch.zeros_like(boxes[:, 1])
-    max_w = orig_shapes[batch_indices, 1].float()
-    max_h = orig_shapes[batch_indices, 0].float()
-    
-    boxes[:, 1] = torch.clamp(boxes[:, 1], zero, max_w)  # x1
-    boxes[:, 3] = torch.clamp(boxes[:, 3], zero, max_w)  # x2
-    boxes[:, 2] = torch.clamp(boxes[:, 2], zero, max_h)  # y1
-    boxes[:, 4] = torch.clamp(boxes[:, 4], zero, max_h)  # y2
-    
-    return boxes
-
-
-def draw_results_optimized(frames: List[np.ndarray], results, ratios: torch.Tensor, 
-                         pads: torch.Tensor, device: torch.device) -> List[np.ndarray]:
-    """Optimized drawing with vectorized operations."""
-    if not results or not any(r.boxes is not None for r in results):
-        return frames
-    
-    # Collect all boxes from batch
-    all_boxes = []
-    
-    for i, result in enumerate(results):
-        if result.boxes is not None and len(result.boxes) > 0:
-            boxes = result.boxes.data.clone()  # [N, 6] format: x1,y1,x2,y2,conf,cls
-            # Add batch index as first column
-            batch_idx = torch.full((boxes.shape[0], 1), i, device=device, dtype=boxes.dtype)
-            boxes_with_idx = torch.cat([batch_idx, boxes], dim=1)  # [N, 7]
-            all_boxes.append(boxes_with_idx)
-    
-    if not all_boxes:
-        return frames
-    
-    # Concatenate all boxes
-    all_boxes = torch.cat(all_boxes, dim=0)
-    
-    # Prepare original shapes tensor
-    orig_shapes = torch.tensor([[f.shape[0], f.shape[1]] for f in frames], 
-                              device=device, dtype=torch.float32)
-    
-    # Vectorized unscaling
-    all_boxes = unscale_boxes_vectorized(all_boxes, ratios, pads, orig_shapes)
-    
-    # Convert back to CPU for drawing
-    all_boxes_cpu = all_boxes.cpu().numpy()
-    
-    # Draw on frames
-    output_frames = []
-    for i, frame in enumerate(frames):
-        frame_copy = frame.copy()
-        frame_boxes = all_boxes_cpu[all_boxes_cpu[:, 0] == i]
-        
-        if len(frame_boxes) > 0:
-            # Vectorized drawing preparation
-            coords = frame_boxes[:, 1:5].astype(int)  # x1,y1,x2,y2
-            confs = frame_boxes[:, 5]
-            classes = frame_boxes[:, 6].astype(int)
-            
-            # Draw all boxes for this frame
-            for j, (x1, y1, x2, y2) in enumerate(coords):
-                conf = confs[j]
-                cls = classes[j]
-                
-                cv2.rectangle(frame_copy, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                label = f"{results[i].names[cls]}: {conf:.2f}"
-                cv2.putText(frame_copy, label, (x1, y1 - 10), 
-                          cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-        
-        output_frames.append(frame_copy)
-    
-    return output_frames
-
-
-def load_video_to_memory(video_path: Path, max_frames: int = 2000) -> Optional[np.ndarray]:
-    """Load entire video to memory for faster processing."""
     cap = cv2.VideoCapture(str(video_path))
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     
@@ -187,151 +43,187 @@ def load_video_to_memory(video_path: Path, max_frames: int = 2000) -> Optional[n
     return np.array(frames) if frames else None
 
 
-def get_codec_info(video_path: Path) -> str:
-    """Get video codec information."""
-    cap = cv2.VideoCapture(str(video_path))
-    fourcc = int(cap.get(cv2.CAP_PROP_FOURCC))
-    codec = "".join([chr((fourcc >> 8 * i) & 0xFF) for i in range(4)])
-    cap.release()
-    return codec
+def letterbox_preprocess(frames: np.ndarray, imgsz: int, device: torch.device) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    batch_tensor = torch.from_numpy(frames).to(device)
+    B, H, W = batch_tensor.shape[:3]
+    
+    # BGR to RGB and normalize
+    batch_tensor = batch_tensor[..., [2, 1, 0]].permute(0, 3, 1, 2).float() / 255.0
+    
+    # Calculate letterbox parameters
+    scale = imgsz / max(H, W)
+    new_h, new_w = int(H * scale), int(W * scale)
+    pad_h, pad_w = (imgsz - new_h) // 2, (imgsz - new_w) // 2
+    
+    # Resize and pad
+    batch_tensor = torch.nn.functional.interpolate(batch_tensor, size=(new_h, new_w), mode='bilinear', align_corners=False)
+    batch_tensor = torch.nn.functional.pad(batch_tensor, (pad_w, imgsz - new_w - pad_w, pad_h, imgsz - new_h - pad_h), value=114/255.0)
+    
+    ratios = torch.full((B,), scale, device=device, dtype=torch.float32)
+    pads = torch.tensor([pad_w, pad_h], device=device, dtype=torch.float32).expand(B, 2)
+    
+    return batch_tensor, ratios, pads
 
 
-def process_video_optimized(video_path: Path, output_path: Path, model: YOLO, config: dict) -> None:
-    """Optimized video processing with GPU acceleration."""
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+def postprocess_batch(frames: List[np.ndarray], results, ratios: torch.Tensor, pads: torch.Tensor, device: torch.device) -> List[np.ndarray]:
+    if not results or not any(r.boxes is not None and len(r.boxes) > 0 for r in results):
+        return frames
     
-    # Try to load video to memory first
-    video_frames = load_video_to_memory(video_path, config.get('max_memory_frames', 2000))
-    use_memory = video_frames is not None
+    # Collect all detections
+    all_boxes = []
+    for i, result in enumerate(results):
+        if result.boxes is not None and len(result.boxes) > 0:
+            boxes = result.boxes.data.clone()
+            batch_idx = torch.full((boxes.shape[0], 1), i, device=device, dtype=boxes.dtype)
+            all_boxes.append(torch.cat([batch_idx, boxes], dim=1))
     
-    if use_memory:
-        total_frames = len(video_frames)
-        fps = 30  # Default, we'll get real fps from original video
-        width, height = video_frames[0].shape[1], video_frames[0].shape[0]
+    if not all_boxes:
+        return frames
+    
+    all_boxes = torch.cat(all_boxes, dim=0)
+    batch_indices = all_boxes[:, 0].long()
+    
+    # Vectorized coordinate unscaling
+    all_boxes[:, [1, 3]] = (all_boxes[:, [1, 3]] - pads[batch_indices, 0:1]) / ratios[batch_indices].unsqueeze(1)  # x1, x2
+    all_boxes[:, [2, 4]] = (all_boxes[:, [2, 4]] - pads[batch_indices, 1:2]) / ratios[batch_indices].unsqueeze(1)  # y1, y2
+    
+    # Clamp to frame bounds
+    frame_shapes = torch.tensor([[f.shape[0], f.shape[1]] for f in frames], device=device, dtype=torch.float32)
+    zero = torch.tensor(0.0, device=device)
+    all_boxes[:, [1, 3]] = torch.clamp(all_boxes[:, [1, 3]], zero, frame_shapes[batch_indices, 1:2])  # x bounds
+    all_boxes[:, [2, 4]] = torch.clamp(all_boxes[:, [2, 4]], zero, frame_shapes[batch_indices, 0:1])  # y bounds
+    
+    # Draw detections
+    boxes_cpu = all_boxes.cpu().numpy()
+    output_frames = []
+    
+    for i, frame in enumerate(frames):
+        frame_copy = frame.copy()
+        frame_boxes = boxes_cpu[boxes_cpu[:, 0] == i]
+        
+        for box in frame_boxes:
+            x1, y1, x2, y2 = map(int, box[1:5])
+            conf, cls = box[5], int(box[6])
+            cv2.rectangle(frame_copy, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.putText(frame_copy, f"{results[i].names[cls]}: {conf:.2f}", (x1, y1 - 10), 
+                       cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        
+        output_frames.append(frame_copy)
+    
+    return output_frames
+
+
+def process_video(video_path: Path, output_path: Path, model: YOLO, config: dict, device: torch.device) -> None:
+    # Setup video I/O
+    memory_frames = load_frames_to_memory(video_path, config.get('max_memory_frames', 2000))
+    
+    if memory_frames is not None:
+        total_frames, fps, width, height = len(memory_frames), 30.0, memory_frames[0].shape[1], memory_frames[0].shape[0]
         print(f"📋 Loaded {total_frames} frames to memory")
+        cap = None
     else:
         cap = cv2.VideoCapture(str(video_path))
         total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         fps = cap.get(cv2.CAP_PROP_FPS)
-        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        width, height = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     
-    # Display video info
-    codec = get_codec_info(video_path)
-    print(f"\n📹 Video: {video_path.name}")
-    print(f"   Codec: {codec} | Resolution: {width}x{height} | FPS: {fps:.1f}")
-    print(f"   Processing: {'Memory' if use_memory else 'Streaming'}")
+    # Video info
+    fourcc = int(cv2.VideoCapture(str(video_path)).get(cv2.CAP_PROP_FOURCC))
+    codec = "".join(chr(fourcc >> 8 * i & 0xFF) for i in range(4))
+    print(f"📹 {video_path.name} | {codec} | {width}x{height} | {fps:.1f}fps | {'Memory' if memory_frames is not None else 'Stream'}")
     
+    # Setup output
     output_path.parent.mkdir(parents=True, exist_ok=True)
     writer = cv2.VideoWriter(str(output_path), cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
     
-    imgsz = config.get('imgsz', 1280)
-    batch_size = config.get('batch', 16)
+    imgsz, batch_size = config.get('imgsz', 1280), config.get('batch', 16)
     
-    pbar = tqdm(
-        total=total_frames,
-        desc="Processing",
-        unit="frames",
-        bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}, FPS: {postfix}]"
-    )
-    
-    processed_frames = 0
-    start_time = time.time()
-    frame_idx = 0
+    # Process batches
+    pbar = tqdm(total=total_frames, desc="Processing", unit="frames")
+    processed_frames, start_time, frame_idx = 0, time.time(), 0
     
     while frame_idx < total_frames:
+        # Collect batch
         frames = []
-        
-        # Collect batch of frames
-        for _ in range(batch_size):
-            if frame_idx >= total_frames:
-                break
-                
-            if use_memory:
-                frame = video_frames[frame_idx]
+        for _ in range(min(batch_size, total_frames - frame_idx)):
+            if memory_frames is not None:
+                frames.append(memory_frames[frame_idx])
             else:
                 ret, frame = cap.read()
                 if not ret:
                     break
-                
-            frames.append(frame)
+                frames.append(frame)
             frame_idx += 1
         
         if not frames:
             break
         
+        # Inference pipeline
         batch_start = time.time()
-        
-        # Optimized preprocessing
-        batch_tensor, ratios, pads = preprocess_batch_optimized(frames, imgsz, device)
-        
-        # Inference
+        batch_tensor, ratios, pads = letterbox_preprocess(np.stack(frames), imgsz, device)
         results = model(batch_tensor, verbose=False)
+        output_frames = postprocess_batch(frames, results, ratios, pads, device)
         
-        # Optimized postprocessing
-        output_frames = draw_results_optimized(frames, results, ratios, pads, device)
+        # Write output
+        for frame in output_frames:
+            writer.write(frame)
         
-        # Write frames
-        for output_frame in output_frames:
-            writer.write(output_frame)
-        
-        inference_fps = len(frames) / (time.time() - batch_start)
+        # Update progress
         processed_frames += len(frames)
-        pbar.set_postfix_str(f"{inference_fps:.1f}")
+        pbar.set_postfix_str(f"{len(frames) / (time.time() - batch_start):.1f}")
         pbar.update(len(frames))
     
-    if not use_memory:
+    # Cleanup
+    if cap:
         cap.release()
     writer.release()
     pbar.close()
     
     total_time = time.time() - start_time
-    avg_fps = processed_frames / total_time
-    print(f"✓ Saved: {output_path.name}")
-    print(f"  {processed_frames} frames in {total_time:.1f}s (avg {avg_fps:.1f} FPS)")
+    print(f"✓ {output_path.name} | {processed_frames} frames | {total_time:.1f}s | {processed_frames/total_time:.1f} avg fps")
 
 
-def inference_video(config_path: str = "config.yaml") -> None:
-    """Main inference function."""
+def main(config_path: str = "config.yaml") -> None:
     print("🚀 Starting YOLO video inference...")
     
     config = load_config(config_path)
-    validate_paths(config['src_video'], config['dst_video'])
+    device = get_device(config)
     
-    # Initialize model
+    # Setup model
     model = YOLO(config['path_weight'])
-    model.conf = config.get('conf', 0.25)
-    model.iou = config.get('iou', 0.45)
+    model.conf, model.iou = config.get('conf', 0.25), config.get('iou', 0.45)
     
-    # Enable optimizations
-    if config.get('fp16', False) and torch.cuda.is_available():
+    if config.get('fp16', False) and device.type == 'cuda':
         model.model.half()
     
-    # Move model to GPU if available
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     
-    # Display startup info
-    weight_name = Path(config['path_weight']).name
-    imgsz = config.get('imgsz', 1280)
-    batch = config.get('batch', 16)
+    # Display info
+    device_name = f"{device.type}:{device.index}" if device.index is not None else str(device)
+    print(f"✓ {Path(config['path_weight']).name} on {device_name}")
     
-    print(f"✓ Model loaded: {weight_name} on {device}")
-    print(f"✓ Config: imgsz={imgsz}, batch={batch}")
-    print(f"✓ Memory loading: {'enabled' if config.get('max_memory_frames', 2000) > 0 else 'disabled'}")
+    if device.type == 'cuda':
+        print(f"  {torch.cuda.get_device_name(device)}")
     
-    video_paths = get_video_paths(config['src_video'])
-    print(f"✓ Found {len(video_paths)} video(s) to process")
+    # Process videos
+    src_path, dst_path = Path(config['src_video']), Path(config['dst_video'])
     
-    dst_path = Path(config['dst_video'])
-    
-    if len(video_paths) == 1 and dst_path.suffix:
-        process_video_optimized(video_paths[0], dst_path, model, config)
+    if src_path.is_file():
+        assert dst_path.suffix, "Output must be file when input is file"
+        video_paths = [src_path]
+    elif src_path.is_dir():
+        assert not dst_path.suffix, "Output must be directory when input is directory"
+        video_paths = [p for p in src_path.rglob('*') if p.suffix.lower() in {'.mp4', '.avi', '.mov', '.mkv', '.webm'}]
     else:
-        for video_path in video_paths:
-            output_path = dst_path / f"{video_path.stem}_detected{video_path.suffix}"
-            process_video_optimized(video_path, output_path, model, config)
+        raise FileNotFoundError(f"Source path not found: {src_path}")
+    
+    print(f"✓ Processing {len(video_paths)} video(s)")
+    
+    # Process each video
+    for video_path in video_paths:
+        output_path = dst_path if dst_path.suffix else dst_path / f"{video_path.stem}_detected{video_path.suffix}"
+        process_video(video_path, output_path, model, config, device)
 
 
 if __name__ == "__main__":
-    inference_video()
+    main()
