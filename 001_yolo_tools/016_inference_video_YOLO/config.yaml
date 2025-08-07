@@ -4,21 +4,27 @@
 
 # razmetka280525_9sec
 # Destination: can be single video file or directory for output
-# src_video:  /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/in/004_video/razmetka280525_9sec.mp4
-# dst_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/out/004_video/razmetka280525_9sec.mp4   # "output/result.mp4"  # or "output/"
+src_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/in/document_5213366535225114258.mp4
+dst_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/out/document_5213366535225114258_1056.mp4   # "output/result.mp4"  # or "output/"
 
 # razmetka280525
-src_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/in/004_video/temp_recording_cityzen.ts   # "input/video.mp4"  # or "input/videos/"
-dst_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/out/004_video/temp_recording_cityzen.mp4   # "output/result.mp4"  # or "output/"
+# src_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/in/004_video/temp_recording_cityzen.ts   # "input/video.mp4"  # or "input/videos/"
+# dst_video: /fanxiangssd/yaroslav/projects/004_sk10/data/data_for_test/out/004_video/temp_recording_cityzen.mp4   # "output/result.mp4"  # or "output/"
 
 
 # Model weights path
-path_weight: "/fanxiangssd/yaroslav/projects/004_sk10/models_exp/005_yoloV11_my_Hyp001Person/exps/person_detection_v1_yolo11s_1280/weights/best.pt"
+# path_weight: "/fanxiangssd/yaroslav/projects/004_sk10/models_exp/005_yoloV11_my_Hyp001Person/exps/person_detection_v1_yolo11s_1280/weights/best.pt"
+path_weight: /fanxiangssd/yaroslav/projects/004_sk10/models_exp/005_yoloV11_my_Hyp001Person/person_detection_git/experiments/003_yolo11s_1056_Yaroslav_khKkcDqJr7/weights/best.pt
+
 
 # Inference parameters
-conf: 0.25  # confidence threshold
-iou: 0.45   # IoU threshold for NMS
-imgsz: 1280 # input image size for model (should match training imgsz)
+conf: 0.05  # confidence threshold
+iou: 0.8   # IoU threshold for NMS
+# imgsz: 1280 # 1280 # input image size for model (should match training imgsz)
+imgsz: 1056 # 1280 # input image size for model (should match training imgsz)
+
+
+# imgsz: 1056 # 1280 # input image size for model (should match training imgsz)
 batch: 16   # batch size for inference
 
 # Optimization settings

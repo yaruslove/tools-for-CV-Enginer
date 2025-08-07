@@ -1,0 +1,21 @@
+# Пути к папкам с разметками
+dir_labels1: "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_006_Kaagle/005_verified_annotation/005_hyp/lebels_joined_01Person/labels"
+dir_labels2: "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_006_Kaagle/005_verified_annotation/005_hyp/lebels_01Helmet_02Head/labels"
+
+# Директория для сохранения объединенных файлов
+dst_save_labels: "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_006_Kaagle/005_verified_annotation/005_hyp/joined_labels_01Person_02_Head_03Helmet/labels"
+
+# Исходные классы из первой папки (без переназначения)
+as_is_labels1_classes:
+  0: "01_Person"                       # Класс 0 -> 01_Person
+
+# Исходные классы из второй папки 
+as_is_labels2_classes:
+  0: "02_Head"                         # Класс 0 -> 02_Head  
+  1: "03_Helmet"                       # Класс 1 -> 03_Helmet
+
+# Финальные объединенные классы (новая нумерация)
+to_be_joined_classes:
+  0: "01_Person"                       # Персона остается классом 0
+  1: "02_Head"                         # Голова становится классом 1
+  2: "03_Helmet"                       # Шлем становится классом 2
