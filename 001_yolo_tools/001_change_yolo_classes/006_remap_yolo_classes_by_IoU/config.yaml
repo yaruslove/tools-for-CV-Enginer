@@ -1,0 +1,4 @@
+
+
+src_annot_dir: "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/004_hypothesis/labels"
+dst_annot_dir: "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_001_SH17_kaagle/005_verified_annotation/004_hypothesis/labels_remap"

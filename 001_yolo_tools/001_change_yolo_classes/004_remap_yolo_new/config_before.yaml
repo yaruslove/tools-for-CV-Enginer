@@ -1,0 +1,25 @@
+src_annot_dir: "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_039_roboflow_construction/003_unverified_annotation/000_hypothesis/Construction.v1i.yolov11/train/labels"
+dst_annot_dir: "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_039_roboflow_construction/003_unverified_annotation/000_hypothesis/selected/train/labels"
+dst_classes:   "/fanxiangssd/yaroslav/projects/004_sk10/data/data/001_raw_data/001_039_roboflow_construction/003_unverified_annotation/000_hypothesis/selected/train/classes.txt"
+
+
+# as_is_classes:
+#     - 01_Person
+#     - 02_Head
+#     - 03_Face
+#     - 04_Helmet
+
+as_is_classes: ['board', 'brick', 'cutter', 'ebox', 'fence', 'handcart', 'helmet', 'hook', 'hopper', 'person', 'rebar', 'scaffold', 'slogan', 'vest', 'wood']
+
+
+
+remap:
+    person: 01_Person
+    person: 01_Person
+    helmet: 02_Helmet
+
+
+
+order_new_classes:
+    - 01_Person
+    - 02_Helmet
